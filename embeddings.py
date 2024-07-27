@@ -40,7 +40,7 @@ class Document(BaseModel):
 def get_embeddings(texts: list[str]) -> list[list[float]]:
     response = openai.embeddings.create(
         model=EMBEDDING_MODEL,
-        input=texts,
+        input=[text.replace("\n", " ") for text in texts],
         dimensions=EMBEDDING_DIMENSIONS,
     )
 
