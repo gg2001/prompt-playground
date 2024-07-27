@@ -19,8 +19,10 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v3
         with:
           activate-environment: prompt-playground
-          channel-priority: strict
-          environment-file: environment.yml
+          auto-update-conda: true
+          python-version: 3.11
           use-only-tar-bz2: true
+      - name: Create environment
+        run: conda env create -f environment.yml --verbose
       - name: Test
         run: make test
