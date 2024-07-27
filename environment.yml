@@ -20,14 +20,19 @@ dependencies:
   - ncurses=6.5=hb89a1cb_0
   - numpy=2.0.1=py311h4268184_0
   - openssl=3.3.1=hfb2fe0b_2
+  - pandas=2.2.2=py311h4b4568b_1
   - pip=24.0=pyhd8ed1ab_0
   - pydantic=2.8.2=pyhd8ed1ab_0
   - pydantic-core=2.20.1=py311h98c6a39_0
   - python=3.11.9=h932a869_0_cpython
+  - python-dateutil=2.9.0=pyhd8ed1ab_0
+  - python-tzdata=2024.1=pyhd8ed1ab_0
   - python_abi=3.11=4_cp311
+  - pytz=2024.1=pyhd8ed1ab_0
   - readline=8.2=h92ec313_1
   - scipy=1.14.0=py311hceeca8c_1
   - setuptools=71.0.4=pyhd8ed1ab_0
+  - six=1.16.0=pyh6c4a22f_0
   - tk=8.6.13=h5083fa2_1
   - typing-extensions=4.12.2=hd8ed1ab_0
   - typing_extensions=4.12.2=pyha770c72_0
