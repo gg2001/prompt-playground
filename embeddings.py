@@ -13,7 +13,12 @@ MIN_CHUNK_LENGTH_TO_EMBED = 5  # Discard chunks shorter than this
 EMBEDDINGS_BATCH_SIZE = 128  # The number of embeddings to request at a time
 MAX_NUM_CHUNKS = 10000  # The maximum number of chunks to generate from a text
 
-openai = OpenAI()
+try:
+    openai = OpenAI()
+except Exception as e:
+    print(f"Error initializing OpenAI client: {e}")
+    openai = None
+
 tokenizer = tiktoken.get_encoding("cl100k_base")
 
 
