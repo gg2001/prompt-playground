@@ -13,20 +13,23 @@ MIN_CHUNK_LENGTH_TO_EMBED = 5  # Discard chunks shorter than this
 EMBEDDINGS_BATCH_SIZE = 128  # The number of embeddings to request at a time
 MAX_NUM_CHUNKS = 10000  # The maximum number of chunks to generate from a text
 
+openai: OpenAI | None = None
 try:
     openai = OpenAI()
 except Exception as e:
     print(f"Error initializing OpenAI client: {e}")
-    openai = None
 
 tokenizer = tiktoken.get_encoding("cl100k_base")
 
 
 class DocumentChunk(BaseModel):
-    id: str | None = None
+    index: int
     doc_id: str | None = None
     text: str
     embedding: list[float] | None = None
+
+    def id(self):
+        return f"{self.doc_id}_{self.index}"
 
 
 class Document(BaseModel):
@@ -151,9 +154,8 @@ def create_document_chunks(
 
     # Assign each chunk a sequential number and create a DocumentChunk object
     for i, text_chunk in enumerate(text_chunks):
-        chunk_id = f"{doc_id}_{i}"
         doc_chunk = DocumentChunk(
-            id=chunk_id,
+            index=i,
             doc_id=doc_id,
             text=text_chunk,
         )
