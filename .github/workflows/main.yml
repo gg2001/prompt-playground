@@ -18,7 +18,6 @@ jobs:
           key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('environment.yml') }}
       - uses: conda-incubator/setup-miniconda@v3
         with:
-          activate-environment: prompt-playground
           auto-update-conda: true
           python-version: 3.11
           use-only-tar-bz2: true
