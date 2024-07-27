@@ -2,6 +2,7 @@ name: /Users/gge/gg2001/prompt-playground/.conda
 channels:
   - conda-forge
 dependencies:
+  - annotated-types=0.7.0=pyhd8ed1ab_0
   - bzip2=1.0.8=h99b78c6_7
   - ca-certificates=2024.7.4=hf0a4a13_0
   - libblas=3.9.0=23_osxarm64_openblas
@@ -20,17 +21,20 @@ dependencies:
   - numpy=2.0.1=py311h4268184_0
   - openssl=3.3.1=hfb2fe0b_2
   - pip=24.0=pyhd8ed1ab_0
+  - pydantic=2.8.2=pyhd8ed1ab_0
+  - pydantic-core=2.20.1=py311h98c6a39_0
   - python=3.11.9=h932a869_0_cpython
   - python_abi=3.11=4_cp311
   - readline=8.2=h92ec313_1
   - scipy=1.14.0=py311hceeca8c_1
   - setuptools=71.0.4=pyhd8ed1ab_0
   - tk=8.6.13=h5083fa2_1
+  - typing-extensions=4.12.2=hd8ed1ab_0
+  - typing_extensions=4.12.2=pyha770c72_0
   - tzdata=2024a=h0c530f3_0
   - wheel=0.43.0=pyhd8ed1ab_1
   - xz=5.2.6=h57fd34a_0
   - pip:
-      - annotated-types==0.7.0
       - anthropic==0.31.2
       - anyio==4.4.0
       - certifi==2024.7.4
@@ -43,11 +47,12 @@ dependencies:
       - httpx==0.27.0
       - huggingface-hub==0.24.2
       - idna==3.7
+      - iniconfig==2.0.0
       - jiter==0.5.0
       - openai==1.37.1
       - packaging==24.1
-      - pydantic==2.8.2
-      - pydantic-core==2.20.1
+      - pluggy==1.5.0
+      - pytest==8.3.2
       - pyyaml==6.0.1
       - regex==2024.7.24
       - requests==2.32.3
@@ -56,6 +61,5 @@ dependencies:
       - tiktoken==0.7.0
       - tokenizers==0.19.1
       - tqdm==4.66.4
-      - typing-extensions==4.12.2
       - urllib3==2.2.2
 prefix: /Users/gge/gg2001/prompt-playground/.conda
