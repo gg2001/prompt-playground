@@ -1,6 +1,5 @@
 import tiktoken
 import uuid
-from scipy import spatial
 from openai import OpenAI, NotGiven, NOT_GIVEN
 from pydantic import BaseModel
 from tenacity import retry, wait_random_exponential, stop_after_attempt
@@ -220,21 +219,3 @@ def get_document_chunks(
         chunk.embedding = embeddings[i]
 
     return chunks
-
-
-def distances_from_embeddings(
-    query_embedding: list[float],
-    embeddings: list[list[float]],
-    distance_metric="cosine",
-) -> list[list]:
-    distance_metrics = {
-        "cosine": spatial.distance.cosine,
-        "L1": spatial.distance.cityblock,
-        "L2": spatial.distance.euclidean,
-        "Linf": spatial.distance.chebyshev,
-    }
-    distances = [
-        distance_metrics[distance_metric](query_embedding, embedding)
-        for embedding in embeddings
-    ]
-    return distances
