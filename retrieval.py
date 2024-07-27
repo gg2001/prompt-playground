@@ -1,9 +1,8 @@
-import numpy as np
 from scipy import spatial
 from embeddings import get_embeddings
 from typing import Callable
 
-Distance = Callable[[list[float], list[float]], np.float64]
+Distance = Callable[[list[float], list[float]], float]
 
 DISTANCE_METRIC = "cosine"
 TOP_N = 100
@@ -39,13 +38,13 @@ def distances_from_embeddings(
     distance_metric=DISTANCE_METRIC,
 ) -> list[float]:
     distance_metrics: dict[str, Distance] = {
-        "cosine": spatial.distance.cosine,
+        "cosine": lambda x, y: spatial.distance.cosine(x, y).item(),
         "L1": spatial.distance.cityblock,
         "L2": spatial.distance.euclidean,
         "Linf": spatial.distance.chebyshev,
     }
     distances = [
-        distance_metrics[distance_metric](query_embedding, embedding).item()
+        distance_metrics[distance_metric](query_embedding, embedding)
         for embedding in embeddings
     ]
     return distances
