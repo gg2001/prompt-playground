@@ -40,7 +40,7 @@ def get_embeddings(texts: list[str]) -> list[list[float]]:
     return [embedding.embedding for embedding in response.data]
 
 
-def get_text_chunks(text: str, chunk_size=CHUNK_SIZE) -> list[str]:
+def get_text_chunks(text: str, chunk_token_size: int | None = None) -> list[str]:
     """
     Split a text into chunks of ~CHUNK_SIZE tokens, based on punctuation and newline boundaries.
 
@@ -60,6 +60,9 @@ def get_text_chunks(text: str, chunk_size=CHUNK_SIZE) -> list[str]:
 
     # Initialize an empty list of chunks
     chunks = []
+
+    # Use the provided chunk token size or the default one
+    chunk_size = chunk_token_size or CHUNK_SIZE
 
     # Initialize a counter for the number of chunks
     num_chunks = 0
