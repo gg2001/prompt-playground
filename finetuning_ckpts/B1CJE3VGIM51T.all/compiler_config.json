@@ -1,0 +1,1 @@
+{"save": "B1CJE3VGIM51T.all", "peft": false, "fp16": false, "bf16": false, "int8": false, "fid": false, "rationale": false, "batch_size": 12, "epochs": 1, "gradient_accumulation_steps": 1, "lr": 5e-05, "target": "google/flan-t5-large", "output_dir": "../finetuning_ckpts/B1CJE3VGIM51T.all"}
